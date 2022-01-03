@@ -1,18 +1,17 @@
-import { PrismaClient } from '@prisma/client'
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
 async function main() {
-    
     await prisma.user.create({
       data: {
-        name: 'Enderson',
-        email: 'souuza98120@gmail.com',
+        name: 'Alice',
+        email: 'alice@prisma.io',
         posts: {
-          create: { title: 'Iniciando no prisma' },
+          create: { title: 'Hello World' },
         },
         profile: {
-          create: { bio: 'Programador Back-end' },
+          create: { bio: 'I like turtles' },
         },
       },
     })
@@ -25,8 +24,6 @@ async function main() {
     })
     console.dir(allUsers, { depth: null })
   }
-
-
 
 main()
   .catch((e) => {
